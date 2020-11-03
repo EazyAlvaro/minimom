@@ -5,7 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use App\Services\HMACService;
+use App\Services\EventService;
 use App\Interfaces\HMACInterface;
+use App\Interfaces\EventInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,9 +18,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->bindService(
+        $this->app->bind(
             HMACInterface::class,
             HMACService::class
+        );
+
+        $this->app->bind(
+            EventInterface::class,
+            EventService::class
         );
     }
 

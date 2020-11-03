@@ -2,6 +2,9 @@
 
 return [
 
+    'momicepublic' => env('MOMICE_PUBLIC', 'empty'),
+    'momicesecret' => env('MOMICE_SECRET', 'empty'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
