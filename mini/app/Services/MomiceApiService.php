@@ -40,4 +40,10 @@ abstract class MomiceApiService
         //TODO catch exceptions and return suitable JSON for it
         return $response->json();
     }
+
+    protected function makeHmacPutRequest(string $endpoint, array $data): array
+    {
+        $response = $this->makeHmacRequest()->put($this->path() . $endpoint, $data);
+        return $response->json();
+    }
 }

@@ -6,8 +6,10 @@ use Illuminate\Support\ServiceProvider;
 
 use App\Services\HMACService;
 use App\Services\EventService;
+use App\Services\InviteService;
 use App\Interfaces\HMACInterface;
 use App\Interfaces\EventInterface;
+use App\Interfaces\InviteInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,12 @@ class AppServiceProvider extends ServiceProvider
             EventInterface::class,
             EventService::class
         );
+
+        $this->app->bind(
+            InviteInterface::class,
+            InviteService::class
+        );
+
     }
 
     /**

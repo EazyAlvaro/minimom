@@ -25,21 +25,7 @@ class HMACService implements HMACInterface
 
     public function getSignature(): string
     {
-        \Log::debug('----');
         $payload = $this->createPayload();
-        \Log::debug($payload, ['payload']);
-
-        $digest = $this->createDigest($payload);
-
-
-        \Log::debug($digest, ['digest']);
-
-        $signature = $payload . '.' . $digest;
-
-        \Log::debug($signature, ['signature']);
-
-        return $signature;
+        return $payload . '.' . $this->createDigest($payload);
     }
-
-
 }
