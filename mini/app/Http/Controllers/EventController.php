@@ -7,6 +7,7 @@ use App\Services\EventService;
 use App\Services\InviteService;
 use App\Interfaces\EventInterface;
 use App\Interfaces\InviteInterface;
+use Illuminate\View\View;
 
 class EventController extends Controller
 {
@@ -25,13 +26,13 @@ class EventController extends Controller
         $this->inviteService = $inviteService;
     }
 
-    public function show($id)
+    public function show(int $id): View
     {
         $event = $this->eventService->getEvent($id);
 
         $invitees = $this->inviteService->getInvites($id);
 
-        \Log::debug($invitees);
+
 
         $data = [
             'event' => $event,
@@ -41,7 +42,7 @@ class EventController extends Controller
         return view("events.show", $data);
     }
 
-    public function list()
+    public function list(): View
     {
         $results = $this->eventService->getAllEvents();
         return view("events.list", ['records' => $results]);
