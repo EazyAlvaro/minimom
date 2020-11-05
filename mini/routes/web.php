@@ -16,8 +16,12 @@ use App\Http\Controllers\InviteController;
 */
 
 
-Route::get('/', [EventController::class, 'list']);
+Route::get('/events', [EventController::class, 'list']);
 
 Route::get('/event/{id}', [EventController::class, 'show']);
 
 Route::get('/event/{eventId}/invite/{inviteId}/edit', [InviteController::class, 'show']);
+
+Route::get('/', function () {
+    return view("home");
+});
