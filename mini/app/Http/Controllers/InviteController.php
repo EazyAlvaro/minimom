@@ -18,6 +18,18 @@ class InviteController extends MomiceController
 
     public function put(Request $request, int $eventId, int $inviteId): View
     {
+        try {
+            $this->validate($request, [
+                'firstname' => 'required|string|min:2',
+                'lastname' => 'required|string|min:2',
+                'email' => 'required|email|min:5'
+            ]);
+        } catch (\Exception $ex) {
+            // i didn't make a fancy error page or frontend for errors, but
+            // let's pretend i did
+            \Log::debug($ex->getMessage());
+        }
+
         $requestData = $request->all();
         $invites = $this->inviteService->getInvites($eventId);
 
