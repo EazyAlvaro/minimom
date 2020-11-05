@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Str;
 use App\Interfaces\HMACInterface;
 
 class HMACService implements HMACInterface

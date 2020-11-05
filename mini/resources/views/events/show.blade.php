@@ -9,8 +9,8 @@
     <hr>
 
     @foreach ($invitees as $invite)
-        <a href='/invite/{{ $invite['invite_id']}}/edit'>
-        <h3>{{ $invite['firstname'] }} {{ $invite['infix'] }} {{ $invite['lastname'] }}</h3>
+        <a href='/event/{{ $event['event_id'] }}/invite/{{ $invite['invite_id']}}/edit'>
+            <h3>{{ $invite['firstname'] }} {{ $invite['infix'] }} {{ $invite['lastname'] }}</h3>
         </a>
         Registration id: {{ $invite['invite_id'] }}<br>
         Confirmation Code: {{ $invite['hash'] }}<br>

@@ -15,7 +15,7 @@ class EventsServiceTest extends Unit
 
         $response = $service->getAllEvents();
 
-        \Log::debug($response, ['response']);
+        //\Log::debug($response, ['response']);
     }
 
 
@@ -48,13 +48,6 @@ class EventsServiceTest extends Unit
 
 
         $response = $service->putEvent(6621, $data);
-
-        
-
         //\Log::debug($response, ['put response']);
-
-
     }
-
-
 }

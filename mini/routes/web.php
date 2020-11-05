@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\InviteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,9 @@ use App\Http\Controllers\EventController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 
 Route::get('/', [EventController::class, 'list']);
 
 Route::get('/event/{id}', [EventController::class, 'show']);
+
+Route::get('/event/{eventId}/invite/{inviteId}/edit', [InviteController::class, 'show']);
